@@ -1,0 +1,4 @@
+.gitingore
+libftTester/
+*.o
+*.a
