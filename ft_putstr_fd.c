@@ -6,7 +6,7 @@
 /*   By: mbouthai <mbouthai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 15:37:12 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/01/27 15:38:03 by mbouthai         ###   ########.fr       */
+/*   Updated: 2022/02/18 13:54:04 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
+	if (fd < 0)
+		return ;
 	while (*s)
 	{
 		ft_putchar_fd(*s, fd);

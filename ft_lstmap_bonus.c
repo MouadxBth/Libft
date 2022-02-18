@@ -6,7 +6,7 @@
 /*   By: mbouthai <mbouthai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 16:21:44 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/01/27 16:55:18 by mbouthai         ###   ########.fr       */
+/*   Updated: 2022/02/18 14:00:35 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,28 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*new;
-	t_list	*aux;
-	t_list	*temp;
+	t_list	*result;
+	t_list	*current_node;
+	t_list	*next_node;
 
 	if (!lst || !f)
 		return (0);
-	new = ft_lstnew(f(lst->content));
-	if (!new)
+	result = ft_lstnew(f(lst->content));
+	if (!result)
 		return (0);
-	aux = new;
+	current_node = result;
 	lst = lst->next;
 	while (lst)
 	{
-		temp = ft_lstnew(f(lst->content));
-		if (!temp)
+		next_node = ft_lstnew(f(lst->content));
+		if (!next_node)
 		{
-			ft_lstclear(&new, del);
+			ft_lstclear(&result, del);
 			return (0);
 		}
-		aux->next = temp;
-		aux = temp;
+		current_node->next = next_node;
+		current_node = next_node;
 		lst = lst->next;
 	}
-	return (new);
+	return (result);
 }
