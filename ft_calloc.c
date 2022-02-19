@@ -6,7 +6,7 @@
 /*   By: mbouthai <mbouthai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 22:45:01 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/01/22 22:50:57 by mbouthai         ###   ########.fr       */
+/*   Updated: 2022/02/19 17:03:23 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*result;
 
-	if (!nmemb ||!size)
-		return (NULL);
 	result = malloc(nmemb * size);
 	if (result != NULL)
 		ft_bzero(result, size * nmemb);
