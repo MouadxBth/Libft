@@ -6,39 +6,51 @@
 /*   By: mbouthai <mbouthai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 21:52:25 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/02/20 15:00:37 by mbouthai         ###   ########.fr       */
+/*   Updated: 2022/02/20 15:24:31 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_should_skip(char c)
+static int	ft_negative(const char *str, int *i)
 {
-	return (c == ' ' || c == '\t' || c == '\r' || c == '\n' || c == '\v' || c == '\f');
+	int	negative;
+
+	negative = 1;
+	if (str[*i] == '-')
+	{
+		negative = -1;
+		*i = *i + 1;
+	}
+	else if (str[*i] == '+')
+	{
+		*i = *i + 1;
+	}
+	return (negative);
 }
 
 int	ft_atoi(const char *str)
 {
-	long	result;
-	int	sign;
+	int	i;
+	int	negative;
+	int	resultat;
 
-	if (!str)
-		return (0);
-	result = 0;
-	sign = 1;
-	while (ft_should_skip(*str))
-		str++;
-	if (*str == '+' || *str == '-')
+	i = 0;
+	resultat = 0;
+	while (str[i] == ' '
+		|| str[i] == '\t'
+		|| str[i] == '\v'
+		|| str[i] == '\r'
+		|| str[i] == '\n'
+		|| str[i] == '\f')
 	{
-		if (*str == '-')
-			sign *= -1;
-		str++;
+		i++;
 	}
-	while (ft_isdigit(*str))
+	negative = ft_negative(str, &i);
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		result *= 10;
-		result += *str - '0';
-		str++;
+		resultat = resultat * 10 + str[i] - '0';
+		i++;
 	}
-	return (result * sign);
+	return (negative * resultat);
 }
