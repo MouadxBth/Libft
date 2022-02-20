@@ -6,7 +6,7 @@
 /*   By: mbouthai <mbouthai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 15:22:27 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/01/27 15:26:21 by mbouthai         ###   ########.fr       */
+/*   Updated: 2022/02/20 14:22:12 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	size_t	length;
 	char	*result;
 
+	if (!s)
+		return (NULL);
 	index = 0;
 	length = ft_strlen(s);
 	result = (char *)malloc(sizeof(char) * (length + 1));

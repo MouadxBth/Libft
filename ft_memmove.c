@@ -6,7 +6,7 @@
 /*   By: mbouthai <mbouthai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 12:34:47 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/01/26 00:25:58 by mbouthai         ###   ########.fr       */
+/*   Updated: 2022/02/20 14:05:34 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 	unsigned char	*from;
 	unsigned char	*to;
 
+	if (!dst && !src)
+		return (NULL);
 	from = (unsigned char *)src;
 	to = (unsigned char *)dst;
 	if (from > to && (size_t)(from - to) < n)

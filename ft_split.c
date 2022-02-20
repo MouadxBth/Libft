@@ -6,7 +6,7 @@
 /*   By: mbouthai <mbouthai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 13:54:39 by mbouthai          #+#    #+#             */
-/*   Updated: 2022/01/27 15:18:22 by mbouthai         ###   ########.fr       */
+/*   Updated: 2022/02/20 14:17:40 by mbouthai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ char	**ft_split(const char *str, char c)
 	size_t	current;
 	char	**result;
 
+	if (!str)
+		return (NULL);
 	words = ft_wordcount(str, c);
 	result = (char **)malloc(sizeof(char *) * (words + 1));
 	if (result != NULL)
